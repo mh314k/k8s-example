@@ -1,0 +1,12 @@
+FROM node:16
+ENV DB_HOST=localhost
+ENV DB_PORT=3306
+ENV DB_USER=usr
+ENV DB_PASSWORD=pass
+ENV DB_NAME=db
+WORKDIR /app
+COPY package*.json ./
+run npm install
+COPY . .
+EXPOSE 3001
+CMD [ "node", "server.js" ]
